@@ -146,7 +146,7 @@ def validate(model, criterion, valset, iteration, batch_size, n_gpus,
         logger.log_validation(val_loss, model, y, y_pred, iteration)
 
 
-def train(output_directory, log_directory, checkpoint_path, n_gpus,
+def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
           rank, group_name, hparams):
     """Training and validation logging results to tensorboard and stdout
 
@@ -287,4 +287,4 @@ if __name__ == '__main__':
     print("cuDNN Benchmark:", hparams.cudnn_benchmark)
 
     train(args.output_directory, args.log_directory, args.checkpoint_path,
-          args.n_gpus, args.rank, args.group_name, hparams)
+          args.warm_start, args.n_gpus, args.rank, args.group_name, hparams)
